@@ -4,4 +4,4 @@ Git has a mutable index called stage.
 Git tracks changes of files.
 
 Creating a new branch is quick and simple master 
-Creating a  new Branch is qucik and  simple dev2
+Creating a  new Branch is qucik and  simple dev3
