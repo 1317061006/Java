@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security.xsd">
+
+
+<!--全局方法权限控制-->
+  <security:global-method-security secured-annotations="enabled" jsr250-annotations="enabled" pre-post-annotations="enabled">
+         <security:protect-pointcut expression="execution(* com.test.Spitter.service.MessageServiceImpl.admin*(..))" access="ROLE_ADMIN"/>
+          </security:global-method-security>
+
+
+
+
+
+    <!--使用bean的方式进行手动方法权限控制-->
+
+     <bean id="service" class="com.test.Spitter.service.MessageServiceImpl">
+        <!-- <security:intercept-methods>
+             <security:protect method="adminMessage" access="ROLE_USER"/>
+             <security:protect method="adminDate" access="ROLE_USER"/>
+         </security:intercept-methods>-->
+     </bean>
+
+    <bean id="service2" class="com.test.Spitter.service.securitCeshi"/>
+
+
+
+
+ <!--具体拦截以及登录页面配置的地方-->
+    <security:http security="none" pattern="/Test/Test" />
+    <security:http security="none" pattern="/none/**"/>
+    <!-- http 元素的 pattern 属性指定当前的 http 对应的 FilterChain 将匹配哪些 URL，如未指定将匹配所有的请求 -->
+    <security:http auto-config="true"  use-expressions="true">
+        <security:form-login  login-page="/login.do"
+                             login-processing-url="/login" username-parameter="username"
+                             password-parameter="password"
+                    authentication-success-handler-ref="authSuccess"
+                    authentication-failure-url="/login_failure"
+                />
+
+
+
+    <!-- Session管理-->
+     <!--检测 session 超时 invalid-session-url 指定使用已经超时的 sessionId 进行请求需要重定向的页面-->
+        <!--通常的session登录是后一次登录将使前一次登录失效，或者直接限制后一次登录。session-management 提供了这种限制。-->
+        <security:session-management invalid-session-url="/login.do"
+                            session-authentication-error-url="/none/session_authentication_error.jsp">
+            <!--concurrency-control 元素是用来限制同一用户在应用中同时允许存在的已经通过认证的 session 数量。这个值默认是 1，
+            可以通过 concurrency-control 元素的 max-sessions 属性来指定。-->
+            <security:concurrency-control  max-sessions="1"
+                    error-if-maximum-exceeded="true"
+                                  expired-url="/none/session_authentication_error.jsp"
+                    />
+            <!-- error-if-maximum-exceeded 为 true 后如果你之前已经登录了，然后想再次登录，
+            那么系统将会拒绝你的登录，同时将重定向到由 form-login 指定的 authentication-failure-url
+            如果你的登陆时Remember me功能登陆的  session失败的地址就是 session-authentication-error-url定义的地址了
+            -->
+            <!--expired-url 由于其再次登录导致 session 超时的 session 时所要跳转的页面-->
+        </security:session-management>
+
+
+
+
+
+        <!--匿名认证
+        http元素的使用默认就会启用对匿名认证的支持，不过我们也可以通过设置http元素下的anonymous元素的enabled属性为false停用对匿名认证的支持。
+         匿名认证就是ROLE_ANONYMOUS权限 -->
+        <security:anonymous enabled="true" key="doesNotMatter" username="anonymous" granted-authority="ROLE_ANONYMOUS"/>
+
+        <!--Remember-me功能 暂时出错 -->
+           <security:remember-me key="Test02" data-source-ref="dataSource"      user-service-ref="userDetailsService" />
+        <!--退出登录-->
+        <security:logout logout-url="/logout.do"/>
+
+
+        <security:http-basic/><!--注意当我们同时定义了 http-basic 和 form-login 元素时，form-login 将具有更高的优先级。
+        功能就是 即在需要认证的时候 将引导我们到登录页面，而不是弹出一个窗口。-->
+
+
+        <!--具体配置页面所需要的权限-->
+        <security:intercept-url pattern="/login.do" requires-channel="http"/>
+        <security:intercept-url pattern="/login.do" access="hasRole('ROLE_ANONYMOUS')"/>
+        <security:intercept-url pattern="/login_failure" access="hasRole('ROLE_ANONYMOUS')"  /><!--指定请求方法-->
+        <security:intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN') and hasIpAddress('192.168.1.1')"/>
+        <security:intercept-url pattern="/spitter/form" requires-channel="https"/>
+        <security:intercept-url pattern="/home" requires-channel="http"/>
+        <security:intercept-url pattern="/**" access="hasRole('ROLE_USER')" /><!--表示请求的用户应当具有 ROLEUSER 角色-->
+</security:http>
+
+
+
+
+        <!--修改默认登录后的返回地址的类 指定自己的返回地址-->
+    <bean id="authSuccess" class="com.test.Spitter.securityController.AuthenticationSuccessHandlerImpl"/>
+
+    <!--LDAP嵌入式服务器-->
+    <!--<security:ldap-server id="userServer" root="dc=habuma,dc=com" ldif="users.ldif"></security:ldap-server>-->
+
+    <!--认证信息配置管理器-->
+    <security:authentication-manager>
+              <security:authentication-provider user-service-ref="ceshi">
+                  <!--下面这个是进行密码加密的功能 出错 原因可能是认证与保存用户密码的时候
+             没有采用相同的加密算法与规则 -->
+                <!--  <security:password-encoder hash="md5" base64="true">
+                      <security:salt-source user-property="username"/>
+                  </security:password-encoder>-->
+
+              </security:authentication-provider>
+              <security:authentication-provider user-service-ref="ceshi2" >
+              </security:authentication-provider>
+        <!--LDAP服务供应者-->
+         <!--  <security:ldap-authentication-provider   server-ref="userServer"  user-search-base="ou=people" user-search-filter="(uid={0})" group-search-base="ou=groups"
+                                          group-search-filter="member=0">
+                <security:password-compare hash="md5" password-attribute="password"></password-compare>
+           </security:ldap-authentication-provider>-->
+
+    </security:authentication-manager>
+
+
+<!--认证信息 1-->
+    <security:user-service id="ceshi">
+        <!-- 这里创建一个用户，可以通过用户名密码登录 -->
+        <security:user name="user" password="user" authorities="ROLE_USER"  />
+    </security:user-service>
+
+
+<!--认证信息JDBC 2-->
+    <security:jdbc-user-service id="ceshi2" data-source-ref="dataSource"
+                       users-by-username-query="
+                       SELECT username,password,enabled  FROM  users WHERE username=?
+    " authorities-by-username-query="
+    SELECT  username,authority FROM  authorities WHERE  username =?"  role-prefix="ROLE_"/>
+    <!-- role-prefix 可以用来指定角色的前缀。-->
+
+
+
+
+
+    <!--remember-me功能使用的配置Bean-->
+    <bean id="userDetailsService" class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+
+
+    <!--异常信息本地化-->
+    <bean id="messgaeSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+      <property name="basenames">
+          <array>
+                <value>classpath*:messages_zh_CN.properties</value>
+                <value>org.springframework.security.messages</value>
+          </array>
+      </property>
+    </bean>
+
+
+    <!--数据库配置-->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/test"/>
+        <property name="username" value="root"/>
+        <property name="password" value="liuziye"/>
+    </bean>
+
+        </beans>
