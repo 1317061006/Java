@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.inter.IUserOperation">
+    <!--启用二级缓存-->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
+
+    <!-- 为了返回list 类型而定义的returnMap -->
+    <resultMap id="resultListUser" type="User">
+        <id column="id" property="id"/>
+        <result column="userName" property="userName"/>
+        <result column="userAge" property="userAge"/>
+        <result column="userAddress" property="userAddress"/>
+    </resultMap>
+
+
+
+
+    <select id="selectUserByID" parameterType="int" resultType="User">
+        select * from `user` where id = #{id}
+    </select>
+
+
+
+    <select id="selectUsers" parameterType="string" resultMap="resultListUser">
+        SELECT * FROM  USER  WHERE  username LIKE  #{username}
+    </select>
+
+    <select id="selectUserbyUsername" parameterType="string" resultType="User">
+        select * from `user` where username = #{username}
+    </select>
+
+
+    <!--执行增加操作的SQL语句。id和parameterType分别与IUserOperation接口中的addUser方法的名字和参数类型一致。
+    以#{name}的形式引用User参数的name属性，MyBatis将使用反射读取User参数的此属性。
+    #{name}中name大小写敏感。引用其他的gender等属性与此一致。
+    useGeneratedKeys设置为"true"表明要MyBatis获取由数据库自动生成的主键；
+    keyProperty="id"指定把获取到的主键值注入到User的id属性-->
+    <insert id="addUser" parameterType="User"
+            >
+    INSERT  INTO USER(userName,userAge,userAddress)
+     VALUES (#{userName},#{userAge},#{userAddress})
+</insert>
+
+    <update id="updateUser" parameterType="User">
+    UPDATE  USER  SET  userName=#{userName},userAge=#{userAge},userAddress=#{userAddress}
+    where id=#{id}
+</update>
+
+    <delete id="deleteUser" parameterType="int">
+        DELETE  FROM  USER  WHERE  id=#{id}
+    </delete>
+</mapper>
