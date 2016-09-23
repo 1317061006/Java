@@ -21,7 +21,7 @@
 </style>
 <body>
 <p id="fail"> fail</p>
-session 再次登陆————出错导致的
+session remember me方式再次登陆————出错导致的(为了防止被攻击)
 <hr>
  fail
 </body>

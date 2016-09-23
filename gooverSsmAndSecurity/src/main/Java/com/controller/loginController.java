@@ -5,6 +5,7 @@ import com.entity.User;
 import com.service.UserService;
 import com.utils.imageUtiles;
 import org.apache.commons.io.FileUtils;
+import org.apache.http.HttpRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -19,6 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.io.File;
 import java.io.IOException;
@@ -116,6 +118,7 @@ public class loginController {
 
     @RequestMapping(value = "/login")
     public String login() {
+
         return "login";
     }
 
@@ -131,7 +134,7 @@ public class loginController {
 
 
     @RequestMapping(value = "login_sucesss")
-    public String login_sucesss() {
+    public String login_sucesss( ) {
         return "login_sucesss";
     }
 

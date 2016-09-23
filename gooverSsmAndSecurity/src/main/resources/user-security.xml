@@ -46,6 +46,7 @@
 
 
           <http security="none" pattern="/none/**"></http>
+          <http security="none" pattern="/captcha.jpg"></http>
     <http auto-config="true" use-expressions="true" >
         <!--自定义主页-->
         <form-login
@@ -61,13 +62,13 @@
 
              <!--session管理 很多攻击都是通过Session完成的-->
         <!--检测 session 超时 invalid-session-url 指定使用已经超时的 sessionId 进行请求需要重定向的页面-->
-           <session-management invalid-session-url="/none/fail" session-authentication-error-url="/none/fail"
+           <session-management invalid-session-url="/none/fail2" session-authentication-error-url="/none/fail"
                     session-fixation-protection="migrateSession">
                 <concurrency-control max-sessions="2" error-if-maximum-exceeded="true" expired-url="/test/logout.do"/>
            </session-management>
 
         <!--退出页面指定需要小心-->
-        <logout logout-url="/test//logout.do" invalidate-session="true" />
+        <logout logout-url="/test/logout.do" invalidate-session="true" />
         <!--必须启动匿名认证才能用  不然会出现我也不懂为什么的错误-->
         <anonymous enabled="true" granted-authority="ROLE_ANONYMOUS"/>
         <intercept-url pattern="/test/logout.do" access="hasRole('ROLE_ANONYMOUS')"/>

@@ -10,7 +10,10 @@
 <%@ taglib prefix="spring" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title></title>
+    <title>登录</title>
+  <script type="text/javascript">
+
+  </script>
 </head>
 <body>
 
@@ -26,10 +29,16 @@ login Test
     <tr>
       <td> 密码</td>
       <td><input type="password" name="password"/></td>
+    <tr>
+    <td>
+      <img src="/captcha.jpg" width="55" height="55" id="vci"/>
+    </td>
+   <td>  <input type="text" name="yzm" /></td>
     </tr>
         <td>Remmber_me</td>
       <td> <input  id="remember_me" type="checkbox" name="_spring_security_remember_me"/></td>
     </tr>
+
     <tr>
       <td colspan="2" align="center">
         <input type="submit" value=" 登录 "/>
@@ -38,6 +47,9 @@ login Test
     </tr>
   </table>
 </form>
+
+
+
 
 </body>
 </html>

@@ -16,6 +16,11 @@ public class noneController {
   public  void fail(ModelAndView modelAndView) {
         modelAndView.addObject("/none/fail");
     }
+
+    @RequestMapping("/fail2")
+    public  void fail2(ModelAndView modelAndView) {
+        modelAndView.addObject("/none/fail2");
+    }
 }
 
 
