@@ -2,6 +2,7 @@ package com.controller;
 
 import com.Exception.ImageUploadException;
 import com.entity.User;
+import com.google.code.kaptcha.Constants;
 import com.service.UserService;
 import com.utils.imageUtiles;
 import org.apache.commons.io.FileUtils;
@@ -20,6 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.io.File;
@@ -117,13 +119,12 @@ public class loginController {
 
 
     @RequestMapping(value = "/login")
-    public String login() {
-
+    public String login( ){
         return "login";
     }
 
     @RequestMapping(value = "/login.do")
-    public String login2() {
+    public String login2(){
         return "login2";
     }
 

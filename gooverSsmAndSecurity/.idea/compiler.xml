@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AjcSettings">
-    <option name="ajcPath" value="D:\WorkSpace\warehouse\org\aspectj\aspectjtools\1.8.1\aspectjtools-1.8.1.jar" />
+    <option name="ajcPath" value="$MAVEN_REPOSITORY$/org/aspectj/aspectjtools/1.8.1/aspectjtools-1.8.1.jar" />
     <option name="delegateToJavac" value="true" />
   </component>
   <component name="CompilerConfiguration">
@@ -32,7 +32,6 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="gooverSpringMVC" target="1.5" />
       <module name="gooverSsmAndSecurity" target="1.5" />
     </bytecodeTargetLevel>
   </component>

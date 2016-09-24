@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import com.google.code.kaptcha.Constants;
 import com.google.code.kaptcha.Producer;
-
+/*添加的kaptcha验证码功能
+* 但是很可惜由于spring security添加验证码太麻烦 我放弃了 只留下个图片作为好看使用
+* */
 @Controller
 @RequestMapping("/")
 public class CaptchaImageCreateController {
@@ -44,7 +46,9 @@ public class CaptchaImageCreateController {
         BufferedImage bi = captchaProducer.createImage(capText);
         ServletOutputStream out = response.getOutputStream();
         // write the data out
+      //这里使用tomcat默认的临时temp文件夹出错
 //        ImageIO.write(bi, "jpg", out);
+     //改为临时存储
          JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(out);
          encoder.encode(bi);
         try {

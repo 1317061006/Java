@@ -41,7 +41,7 @@ public class imageUtiles {
 
           @PostAuthorize("returnObject =='ceshi'")
          public  String ceshi() {
-         return "ceshi";
+           return "ceshi";
         }
 
 

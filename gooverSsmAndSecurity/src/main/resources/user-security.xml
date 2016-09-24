@@ -45,8 +45,6 @@
             />
 
 
-          <http security="none" pattern="/none/**"></http>
-          <http security="none" pattern="/captcha.jpg"></http>
     <http auto-config="true" use-expressions="true" >
         <!--自定义主页-->
         <form-login
@@ -66,7 +64,6 @@
                     session-fixation-protection="migrateSession">
                 <concurrency-control max-sessions="2" error-if-maximum-exceeded="true" expired-url="/test/logout.do"/>
            </session-management>
-
         <!--退出页面指定需要小心-->
         <logout logout-url="/test/logout.do" invalidate-session="true" />
         <!--必须启动匿名认证才能用  不然会出现我也不懂为什么的错误-->
@@ -78,10 +75,11 @@
         <intercept-url pattern="/test/login_failure" access="hasRole('ROLE_ANONYMOUS')"  />
         <intercept-url pattern="/test/login_sucesss2" access="hasIpAddress('127.0.0.1')"  />
         <intercept-url pattern="/test/**" access="hasRole('ROLE_USER')" />
+        <intercept-url pattern="/none/**" access="hasRole('ROLE_ANONYMOUS')"/>
+        <intercept-url pattern="/captcha.jpg" access="hasRole('ROLE_ANONYMOUS')"/>
         <intercept-url pattern="/**" access="hasRole('ROLE_USER')" />
+        
     </http>
-
-
 
 
 
