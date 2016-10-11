@@ -3,11 +3,6 @@
     <output-path>$PROJECT_DIR$/target</output-path>
     <root id="archive" name="tan-springmvc-book.war">
       <element id="artifact" artifact-name="gooverSsmAndSecurity:war exploded" />
-      <element id="directory" name="WEB-INF">
-        <element id="directory" name="lib">
-          <element id="library" level="module" name="JUnit4" module-name="gooverSsmAndSecurity" />
-        </element>
-      </element>
     </root>
   </artifact>
 </component>

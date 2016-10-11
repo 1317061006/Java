@@ -12,7 +12,10 @@
 <head>
     <title>登录</title>
   <script type="text/javascript">
-
+      function changeR(node){
+          // 用于点击时产生不同的验证码
+          node.src = "/captcha.jpg?time="+new Date().getTime() ;
+      }
   </script>
 </head>
 <body>
@@ -31,7 +34,7 @@ login Test
       <td><input type="password" name="password"/></td>
     <tr>
     <td>
-      <img src="/captcha.jpg" width="55" height="55" id="vci"/>
+      <img src="/captcha.jpg" width="55" height="55" id="vci" onclick="changeR(this)"/>
     </td>
    <td>  <input type="text" name="yzm" /></td>
     </tr>

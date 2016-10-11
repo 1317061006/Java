@@ -38,7 +38,7 @@ public class imageUtiles {
         }
 
     }
-
+            /*security测试*/
           @PostAuthorize("returnObject =='ceshi'")
          public  String ceshi() {
            return "ceshi";

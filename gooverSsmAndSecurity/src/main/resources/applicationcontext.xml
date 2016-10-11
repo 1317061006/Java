@@ -22,6 +22,7 @@
         <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
         <property name="username" value="root"/>
         <property name="password" value="liuziye"/>
+
     </bean>
 
 

@@ -38,4 +38,9 @@
     </bean>
 
 
+
+    <!--全局管理异常-->
+    <bean  id="exceptionResolver" class="com.controller.GlobalException"/>
+
+
 </beans>
