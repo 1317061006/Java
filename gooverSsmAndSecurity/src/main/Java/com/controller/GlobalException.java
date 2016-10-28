@@ -22,7 +22,7 @@ public class GlobalException implements HandlerExceptionResolver {
        if(ex instanceof userException) {
            message = ((userException) ex).getMessage();
        }else {
-           message = "系统出错 稍后再试";
+           message = "系统出错 稍后再试"+ex.getMessage();
        }
 
         ModelAndView modelAndView = new ModelAndView();
