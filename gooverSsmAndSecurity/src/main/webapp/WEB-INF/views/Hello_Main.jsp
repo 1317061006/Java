@@ -15,5 +15,6 @@
  <a href="/test/hello2 ?test=
  五术山人">hello2</a>
 <a href="/test?new">注册表单</a>
+<a href="/test/login_sucesss">loginsucess页面</a>
 </body>
 </html>

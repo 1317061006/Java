@@ -46,7 +46,7 @@
 
             <tr>
                 <input name="image" type="file"/> </td>
-                <th><label for="image   ">Profile image</label> </th>
+                <th><label for="image">Profile image</label> </th>
             </tr>
             <tr>
                 <td colspan="2">

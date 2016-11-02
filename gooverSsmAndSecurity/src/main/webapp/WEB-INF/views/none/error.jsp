@@ -9,11 +9,20 @@
 <%@page isELIgnored="false"%>
 
 <%@taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c" %>
+
+
 <html>
 <head>
     <title>报错</title>
 </head>
-<body>
-全局管理异常报错的地方 <p> <strong>${message}</strong></p>
+<script type="text/javascript">
+  function load(){
+    alert("全局管理报错 在控制台输出原因");
+    console.log("${message}");
+  }
+</script>
+<body onload="load()">
+<%--全局管理异常报错的地方 <p> <strong>${message}</strong></p>--%>
+      <p align="center"> <a href="/test/index">index</a> </p>
 </body>
 </html>

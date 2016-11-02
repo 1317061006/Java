@@ -11,6 +11,7 @@
 <html>
 <head>
     <title>登录</title>
+
   <script type="text/javascript">
       function changeR(node){
           // 用于点击时产生不同的验证码
@@ -22,7 +23,6 @@
 
 
 login Test
-
 <form action="login" method="post">
   <table>
     <tr>

@@ -15,21 +15,33 @@
 
 <html>
 <head>
-    <title></title>
+    <title>Hello</title>
+    <link rel="stylesheet" type="text/css" href="/resources/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/resources/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="/resources/demo/demo.css">
+    <script type="text/javascript" src="/resources/jquery.min.js"></script>
+    <script type="text/javascript" src="/resources/jquery.easyui.min.js"></script>
 </head>
 <body>
+
+<div style="margin:20px 0 10px 0;">
+    <a href="#" class="easyui-linkbutton" onclick="javascript:$('#p').panel('open')">Open</a>
+    <a href="#" class="easyui-linkbutton" onclick="javascript:$('#p').panel('close')">Close</a>
+</div>
 你好
 
 <c:out value="${hello}"/>
 
 
-
+<div id="p" class="easyui-panel" title="Basic Panel" style="width:700px;height:200px;padding:10px;">
  <%--<c:out value="${User.getId()}"/>--%>
-
-<c:forEach var="user" items="${User}">
+<ul>
+<li><c:forEach var="user" items="${User}">
 
     <a href="hello">。。。</a>
-    <hr>
+</li>
+
+  <li>
     <s:url  value="${ceshi}" var="User_url">
         <a href="${User_url}"> 测试</a>
     <s:param name="ceshi" value="${user.getUserName()}" />
@@ -55,6 +67,8 @@
          </tr>
      </table>
 </sf:form>
-
+    </li>
+    </ul>
+</div>
 </body>
 </html>

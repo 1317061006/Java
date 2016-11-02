@@ -57,7 +57,6 @@ public class loginController {
 
 
 
-
     @RequestMapping(value = {"/hello2"}, method = RequestMethod.GET)
     public String showHomepage2(@RequestParam("test") String username, Model model) {
         User user = userService.getUserById(1);
@@ -81,7 +80,7 @@ public class loginController {
         return "Hello_Main";
     }
 
-
+   /*加上了*/
     @RequestMapping(method = RequestMethod.POST)
     public String addUserFromFrom(@Valid User user, BindingResult errors,
                                   @RequestParam(value = "image", required = false) MultipartFile image) {

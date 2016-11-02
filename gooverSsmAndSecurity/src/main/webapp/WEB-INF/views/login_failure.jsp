@@ -11,6 +11,7 @@
     <title>login_failure</title>
 </head>
 <body>
-出错了 ERROR
+
+<p align="center">  出错了 ERROR </p>
 </body>
 </html>

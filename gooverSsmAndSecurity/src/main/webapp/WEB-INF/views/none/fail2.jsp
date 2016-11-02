@@ -10,9 +10,14 @@
 <head>
     <title>出错</title>
 </head>
-<body>
-出错信息为： invalid-session-url
 
-指定使用已经超时的 sessionId 进行请求需要重定向的页面
+<script type="application/javascript">
+  function load(){
+   alert("出错信息为： invalid-session-url 指定使用已经超时的 sessionId 进行请求需要重定向的页面");
+  }
+</script>
+<body onload="load()">
+ <a href="/test/login.do">访问到此页面进行登录</a>
+
 </body>
 </html>
