@@ -35,4 +35,12 @@ public class UserDao {
     }
 
 
+    public  void  deleteUser(int id){
+           mapper.deleteUser(1);
+    }
+
+    public void updateUser(User user){
+          mapper.updateUser(user);
+    }
+
 }

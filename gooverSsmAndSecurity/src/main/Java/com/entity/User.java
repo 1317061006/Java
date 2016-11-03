@@ -5,8 +5,9 @@ import org.hibernate.validator.constraints.Range;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 
-public class User {
+public class User implements Serializable {
 
     private int id;
    @Size(min=3,max = 20  )
