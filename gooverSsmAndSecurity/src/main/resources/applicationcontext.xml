@@ -4,24 +4,31 @@
        xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="
-          http://www.springframework.org/schema/beans
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
           http://www.springframework.org/schema/tx
           http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
           http://www.springframework.org/schema/context
           http://www.springframework.org/schema/context/spring-context-3.0.xsd
           http://www.springframework.org/schema/aop
-          http://www.springframework.org/schema/aop/spring-aop-3.0.xsd" >
+          http://www.springframework.org/schema/aop/spring-aop-3.0.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+    <!--启动定时器-->
+    <task:annotation-driven/>
 
-<!--配置数据库连接池-->
+    <!-- 启用注解 -->
+    <context:annotation-config />
 
+   <!--加载数据库配置文件 -->
+    <context:property-placeholder location="classpath:db.properties"/>
+
+    <!--配置数据库连接池-->
     <bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 
-        <property name="url" value="jdbc:mysql://localhost:3306/spitter?characterEncoding=utf8"/>
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-        <property name="username" value="root"/>
-        <property name="password" value="liuziye"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="driverClassName" value="${jdbc.driver}"></property>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
 
     </bean>
 
@@ -37,7 +44,6 @@
     <bean    class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.inter"/>
     </bean>
-
 
 
 <!--事务管理-->

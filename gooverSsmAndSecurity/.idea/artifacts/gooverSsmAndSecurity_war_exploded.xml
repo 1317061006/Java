@@ -80,6 +80,7 @@
           <element id="library" level="project" name="Maven: com.jhlabs:filters:2.0.235-1" />
           <element id="library" level="project" name="Maven: com.alibaba:druid:1.0.19" />
           <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.2.7" />
+          <element id="library" level="module" name="JUnit4" module-name="gooverSsmAndSecurity" />
         </element>
       </element>
       <element id="directory" name="META-INF">
