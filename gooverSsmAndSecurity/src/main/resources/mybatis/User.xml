@@ -4,8 +4,8 @@
 
 
 <mapper namespace="com.inter.IUserOperation">
-    <!--启用二级缓存-->
-    <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
+    <!--&lt;!&ndash;启用二级缓存 已被Spring托管&ndash;&gt;-->
+    <!--<cache type="org.mybatis.caches.ehcache.EhcacheCache"/>-->
 
     <!-- 为了返回list 类型而定义的returnMap -->
     <resultMap id="resultListUser" type="User">

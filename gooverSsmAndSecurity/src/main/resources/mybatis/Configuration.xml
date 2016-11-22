@@ -20,7 +20,12 @@
         <typeAlias alias="User" type="com.entity.User"/>
     </typeAliases>
 
-
+    <!--增加分页功能插件-->
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageHelper">
+            <property name="dialect" value="mysql"/>
+        </plugin>
+    </plugins>
 
 
     <!--<environments default="development">-->

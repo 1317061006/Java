@@ -9,7 +9,7 @@
   <url>http://maven.apache.org</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <springversion>3.0.5.RELEASE</springversion>
+    <springversion>3.2.4.RELEASE</springversion>
     <junitversion>3.8.1</junitversion>
     <org.springframework.security.version>3.1.1.RELEASE</org.springframework.security.version>
   </properties>
@@ -28,13 +28,14 @@
       <type>jar</type>
       <scope>compile</scope>
     </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-asm</artifactId>
-      <version>${springversion}</version>
-      <type>jar</type>
-      <scope>compile</scope>
-    </dependency>
+      <!--在spring-core中已经有这个包了-->
+    <!--<dependency>-->
+      <!--<groupId>org.springframework</groupId>-->
+      <!--<artifactId>spring-asm</artifactId>-->
+      <!--<version>3.0.5.RELEASE</version>-->
+      <!--<type>jar</type>-->
+      <!--<scope>compile</scope>-->
+    <!--</dependency>-->
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-aspects</artifactId>
@@ -299,6 +300,13 @@
       <artifactId>mybatis</artifactId>
       <version>3.3.1</version>
     </dependency>
+      <!--分页功能-->
+      <dependency>
+          <groupId>com.github.pagehelper</groupId>
+          <artifactId>pagehelper</artifactId>
+          <version>4.1.4</version>
+      </dependency>
+
     <dependency>
       <groupId>commons-io</groupId>
       <artifactId>commons-io</artifactId>
@@ -336,11 +344,15 @@
           <version>1.0.1</version>
       </dependency>
 
+      <!-- https://mvnrepository.com/artifact/net.sf.ehcache/ehcache -->
       <dependency>
           <groupId>net.sf.ehcache</groupId>
-          <artifactId>ehcache-core</artifactId>
-          <version>2.6.5</version>
+          <artifactId>ehcache</artifactId>
+          <version>2.8.1</version>
       </dependency>
+
+
+
 
       <dependency>
           <groupId>com.github.penggle</groupId>

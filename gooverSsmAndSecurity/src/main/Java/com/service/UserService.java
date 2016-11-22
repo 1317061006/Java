@@ -7,6 +7,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * Created by han on 2016/9/7.
  */
@@ -26,11 +28,20 @@ public class UserService {
         return user;
     }
 
+
+    public List<User> selectUsers(String userName,int pagenum,int pagerow) {
+        return userDao.selectUsers(userName,pagenum,pagerow);
+    }
+
+
     public  void SaveUser(User user){
         userDao.saveUser(user);
     }
 
     public  void deleteUser(int id){userDao.deleteUser(id);}
 
-    public  void updateUser(User user){userDao.updateUser(user);}
+    public  void updateUser(User user){userDao.updateUser(user);
+
+
+    }
  }
