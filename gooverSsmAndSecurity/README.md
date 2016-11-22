@@ -1,5 +1,5 @@
- # JavaDemo式小项目
-
- ##  后端集成了SSM与Spring security框架  前端采用的easyui的Demo式项目 
-
- 写的原因主要前期学习顺手而成 并没有太多意义 
+# JavaDemo
+---
+ 后台采用的是SSM架构 权限控制采用的是Spring Security框架
+前端使用的是easyui前端框架 并没有太多意义 前期学习顺手写的 
+ 
