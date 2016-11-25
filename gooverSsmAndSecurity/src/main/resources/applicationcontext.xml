@@ -42,9 +42,12 @@
      <property name="mapperLocations" value="classpath:/mybatis/User.xml"/>
  </bean>
 
-    <bean    class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+    <!--采用了通用mapper-->
+    <bean    class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.inter"/>
     </bean>
+
+
 
 
 
@@ -68,7 +71,6 @@
 
 
 
-
     <!-- 启用cache注解扫描，@CacheConfig/@Cacheable/@CachePut/@CacheEvict/@Caching -->
     <cache:annotation-driven />
 
@@ -83,6 +85,7 @@
           class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean" >
         <property name="configLocation" value="classpath:ehcache.xml"/>
     </bean>
+
 
 
     <!--验证码配置-->

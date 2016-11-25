@@ -136,5 +136,7 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.7" level="project" />
+    <orderEntry type="library" name="Maven: javax.persistence:persistence-api:1.0" level="project" />
+    <orderEntry type="library" name="Maven: tk.mybatis:mapper:3.3.9" level="project" />
   </component>
 </module>
