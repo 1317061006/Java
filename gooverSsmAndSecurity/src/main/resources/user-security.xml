@@ -95,6 +95,7 @@
         <!--指定登录后的页面-->
     <beans:bean id="authSuccess" class="com.securityController.AuthenticationSuccessHandlerImpl"/>
 
+    <!--导入其他配置-->
       <beans:import resource="applicationcontext.xml"/>
 
 </beans:beans>

@@ -10,9 +10,9 @@ public class county {
 
     @Id
     private Integer id;
-    @Column(name = "countyname")
+    @Column(name = "countryname")
     private String countryname;
-    @Column(name = "countycode")
+    @Column(name = "countrycode")
     private String countrycode;
 
     public Integer getId() {

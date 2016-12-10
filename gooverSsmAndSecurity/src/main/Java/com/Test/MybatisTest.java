@@ -15,7 +15,7 @@ import java.util.List;
 public class MybatisTest {
 
     public static void main(String[] args) {
-        ApplicationContext context=new ClassPathXmlApplicationContext("applicationcontext.xml");
+        ApplicationContext context=new ClassPathXmlApplicationContext("classpath:applicationcontext.xml");
         UserDao userDao = (UserDao) context.getBean("userDao");
          countyDao countyDao = (countyDao) context.getBean("countyDao");
 
