@@ -1,0 +1,21 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>userNameTest</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+
+userNameTest
+
+<p th:text="'Test传输数据:'+${username}">Welcome to our grocery store!</p>
+
+
+<a th:href="@{http://www.thymeleaf.org}">Thymeleaf</a>
+
+<a th:href="@{/resources/images/spitter_avatar.png}">观看图片</a>
+<img th:src="@{/resources/images/spitter_avatar.png}" />
+
+
+</body>
+</html>

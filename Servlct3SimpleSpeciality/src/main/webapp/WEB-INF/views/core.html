@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title></title>
+    <script src="/resources/core.js"></script>
+</head>
+
+<body>
+<script>
+    var data = {
+        'dataType':'text',
+        'url':'http://dev.oobase.com/core/api.php',
+        'data':{
+            'cmd':'User/user_acc,key_detail',
+//            'uuid':'AFEB2543-5568-41E8-529E-D9BC6B47D51F',
+            'map':'User/user_acc/return_uuid/a/b/c:uuid',
+            'user_acc':'',
+            'user_pwd':''
+        },
+        "key":'密钥内容',
+        'callback':function (data) {
+            console.log(data)
+        }
+    };
+    AJAX(data);
+</script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3" >
+<head>
+  <title>Register</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+
+<h1>Register</h1>
+
+
+<form  method="post"  th:action="@{/order-api/saveorder}"
+      th:object="${order}"  enctype="application/json">
+<div class="errors" th:if="${#fields.hasErrors('*')}">
+   <ul>
+     <li th:each="err : ${#fields.errors('*')}"
+         th:text="${err}">填写符合规范</li>
+   </ul>
+</div>
+
+  <label th:class="${#fields.hasErrors('id')} ? 'error'">id</label>
+   <input th:field="*{id}"
+           th:class="${#fields.hasErrors('id')} ? 'error'" /><br />
+
+  <label th:class="${#fields.hasErrors('customer')} ? 'error' ">customer</label>
+  <input th:field="*{customer}"
+          th:class="${#fields.hasErrors('customer')} ? 'error'" /><br />
+
+
+  <label  th:class="${#fields.hasErrors('type')} ? 'error'">type  </label>
+  <input th:field="*{type}" th:class="${#fields.hasErrors('type')} ? 'error'" /> <br />
+
+  <input type="submit" value="提交" /> <br />
+
+
+</form>
+
+
+</body>
+</html>

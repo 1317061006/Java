@@ -1,0 +1,16 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>file</title>
+</head>
+<body>
+
+<form method="post" th:object="${user}" enctype="multipart/form-data"
+     th:action="@{/Success}"  >
+     <label> Profile Picture</label>
+      <input type="text" th:field="*{name}" />
+    <input type="file" name="profilePicture" accept="image/jpeg,image/png,image/gif" /><br/>
+    <input type="submit" value="提交" />
+</form>
+</body>
+</html>
