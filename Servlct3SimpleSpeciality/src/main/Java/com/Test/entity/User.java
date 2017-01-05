@@ -13,7 +13,6 @@ import javax.validation.constraints.Size;
 @PropertySource("classpath:ValidationMessages.properties")
 public class User {
 
-
     @NotNull
     @Size(min = 2,max = 20,message ="{User.name.size}")
     private String name;
@@ -32,6 +31,7 @@ public class User {
     public User(String name) {
         this.name = name;
     }
+
 
     @Override
     public String toString() {

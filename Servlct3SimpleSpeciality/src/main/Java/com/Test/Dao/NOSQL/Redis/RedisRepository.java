@@ -29,11 +29,12 @@ public interface RedisRepository {
 
     public Order List2();
 
-    @CacheEvict("userCache")
-    public void  remove(String key,Order order);
+    @CacheEvict(value = "userCache",key = "#key")
+    public void  remove(String key);
 
     public  void  Set(Order order);
 
-    @CachePut(value = "userCache",key = "#orders.get(0).id")
+    @CachePut(value = "userCache")
     public  void bind(List<Order> orders) ;
+
 }

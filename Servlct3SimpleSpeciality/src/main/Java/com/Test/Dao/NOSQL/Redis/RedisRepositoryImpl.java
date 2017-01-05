@@ -52,8 +52,8 @@ public class RedisRepositoryImpl implements RedisRepository  {
      }
 
     @Override
-    public void remove(String key,Order order) {
-        redisTemplate.opsForSet().remove(key,order);
+    public void remove(String key) {
+        redisTemplate.delete(key);
     }
 
 

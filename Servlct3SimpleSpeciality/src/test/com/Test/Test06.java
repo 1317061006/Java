@@ -22,8 +22,9 @@ public class Test06 {
     @Test
     public void Test01() {
         Order order = new Order();
-        order.setId("username");
-        order.setCustomer("password");
+        order.setId("1");
+        order.setCustomer("Test");
+        order.setType("ceshi");
         repository.save(order);
     }
 
@@ -45,6 +46,13 @@ public class Test06 {
         Order order=repository.find("username");
         System.out.println(order);
     }
+
+
+    @Test
+    public  void removeOrder() {
+        repository.remove("2");
+    }
+
 
 
 }

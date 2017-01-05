@@ -8,4 +8,6 @@ import tk.mybatis.mapper.common.Mapper;
  */
 public interface CountyMapper extends Mapper<County> {
 
+   County selectById(int id);
+
 }

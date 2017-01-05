@@ -1,0 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3" >
+<head>
+  <title>Register</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css"> </link>
+    <link rel="stylesheet" href="/resources/css/bootstrap-theme.min.css"> </link>
+    <script src="/resources/js/bootstrap.min.js" ></script>
+</head>
+<body>
+
+<div align="center">
+ <form method="post" th:action="@{saveSuccess}" th:object="${county}" role="form">
+      <table class="table">
+          <div class="errors" th:if="${#fields.hasErrors('*')}">
+               <ul>
+                   <li th:each="err :${#fields.errors('*')}"
+                        th:text="${err}" >填写符合规范
+                   </li>
+               </ul>
+          </div>
+
+          <div class="form-group">
+              <tr align="center">
+                  <td><label th:class="${#fields.hasErrors('id')} ? 'error'">id</label></td>
+                  <td><input th:field="*{id}" /></td>
+              </tr>
+          </div>
+
+          <div class="form-group">
+               <td><label th:field="${#fields.hasErrors('countyname')} ? 'error'">countyname</label> </td>
+               <td> <input th:field="*{countryname}" /></td>
+          </div>
+
+          <div class="form-group">
+              <td><label th:field="${#fields.hasErrors('countycode')} ? 'error'">countycode</label> </td>
+              <td> <input th:field="*{countrycode}" /></td>
+          </div>
+
+
+          <div class="form-group">
+               <tr>
+                   <td colspan="2" align="center">
+                       <button type="submit" class="btn btn-success">提交</button>
+                   </td>
+               </tr>
+          </div>
+      </table>
+
+ </form>
+</div>
+</body>
+</html>

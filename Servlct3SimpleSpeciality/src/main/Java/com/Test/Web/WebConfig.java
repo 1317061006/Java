@@ -70,7 +70,7 @@ public class WebConfig  extends WebMvcConfigurerAdapter {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        super.addResourceHandlers(registry);
+        registry.addResourceHandler(new String[]{"/resources"}).addResourceLocations("/resources");
     }
 
 

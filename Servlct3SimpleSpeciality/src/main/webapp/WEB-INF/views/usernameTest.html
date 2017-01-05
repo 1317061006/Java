@@ -1,20 +1,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>userNameTest</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>UserNameTest</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+    </link>
+    <link rel="stylesheet" href="/resources/css/bootstrap-theme.min.css">
+    </link>
+    <script src="/resources/js/bootstrap.min.js"></script>
 </head>
 <body>
+<div class="page-header">
+    <h1 class="text-capitalize"> userNameTest</h1> --
+    <small><a th:href="@{http://www.thymeleaf.org}">Thymeleaf</a></small>
+</div>
 
-userNameTest
 
-<p th:text="'Test传输数据:'+${username}">Welcome to our grocery store!</p>
+<div align="center">
+    <h2><p class="" th:text="'数据传输为:'+${username}">Welcome to our grocery store!</p></h2>
 
 
-<a th:href="@{http://www.thymeleaf.org}">Thymeleaf</a>
+    <a th:href="@{/resources/images/backgroundimage4.jpg}">
+        <img th:src="@{/resources/images/backgroundimage4.png}" title="老婆的战斗"/></a>
 
-<a th:href="@{/resources/images/spitter_avatar.png}">观看图片</a>
-<img th:src="@{/resources/images/spitter_avatar.png}" />
+</div>
 
 
 </body>

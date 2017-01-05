@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 
-/**
+/**EhCache 缓存配置
  * Created by han on 2016/12/11.
  */
 @Configuration

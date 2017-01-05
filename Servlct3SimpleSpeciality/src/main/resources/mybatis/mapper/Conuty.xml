@@ -3,6 +3,13 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 
-<mapper namespace="com.Test.inter">
+<mapper namespace="com.Test.Dao.mybatis.CountyMapper">
+
+
+        <select id="selectById" parameterType="int" resultType="County">
+        SELECT   *  from county where
+        id =#{_parameter}
+        </select>
+
 
 </mapper>

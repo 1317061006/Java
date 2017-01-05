@@ -17,7 +17,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
+/**RedisCache配置
  * Created by han on 2016/12/12.
  */
 @Configuration

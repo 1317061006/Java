@@ -1,6 +1,6 @@
 package com.Test;
 
-import com.Test.JavaConfig.MybatisConfig;
+import com.Test.JavaConfig.web.MybatisConfig;
 import com.Test.Dao.mybatis.CountyMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,6 +24,11 @@ public class Test07 {
         System.out.println(countyMapper.selectAll());
     }
 
+
+    @Test
+    public  void Test2(){
+        System.out.println(countyMapper.selectByPrimaryKey("ceshi"));
+    }
 
 
 }

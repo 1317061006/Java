@@ -31,7 +31,6 @@ public class HibernateDataConfig1 {
     Environment env;
 
 
-
     @Bean
     public BasicDataSource dataSource() {
         BasicDataSource ds = new BasicDataSource();
@@ -62,6 +61,7 @@ public class HibernateDataConfig1 {
          transactionManager.setDataSource(dataSource());
         return transactionManager;
      }
+
 
     /*启用异常检测*/
     @Bean

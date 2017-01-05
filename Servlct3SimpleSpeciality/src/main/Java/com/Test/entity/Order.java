@@ -10,6 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Document
 @PropertySource("classpath:ValidationMessages.properties")
@@ -17,6 +18,7 @@ public class Order implements Serializable {
 
 	@NotNull
 	@Id
+	@Size(min = 2,max = 20,message ="{Order.id.size}")
  	private String id;
 
 

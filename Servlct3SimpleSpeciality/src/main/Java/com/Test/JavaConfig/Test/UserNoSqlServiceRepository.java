@@ -30,7 +30,7 @@ public class UserNoSqlServiceRepository implements UserDetailsService {
         Order order =repository.find(username);
         if(order !=null) {
             List<GrantedAuthority> authorities =
-                    new ArrayList<>();
+                    new ArrayList<GrantedAuthority>();
             authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
             authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
             return new org.springframework.security.core.userdetails.User(

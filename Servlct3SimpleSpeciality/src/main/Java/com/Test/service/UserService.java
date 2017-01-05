@@ -4,7 +4,7 @@ import com.Test.entity.User;
 
 import java.util.List;
 
-/**
+/**测试SpirngSecurity 安全注解
  * Created by han on 2016/12/17.
  */
 public interface UserService {

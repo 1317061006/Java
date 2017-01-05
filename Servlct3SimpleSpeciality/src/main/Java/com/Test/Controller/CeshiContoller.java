@@ -16,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -68,7 +69,6 @@ public class CeshiContoller {
 
 
 
-
     @RequestMapping(value = "{username}",method = RequestMethod.GET)
     public  String showSpitterProfil(@PathVariable String username,Model model ){
         if(!model.containsAttribute("user")){
@@ -106,6 +106,14 @@ public class CeshiContoller {
         return "RegisterOrder";
     }
 
+
+    @RequestMapping(value = "/saveorder2",method = RequestMethod.POST )
+    public String saveOrder2( @Valid Order order,Errors errors ) {
+        if (errors.hasErrors()) {
+            return "/RegisterOrder";
+        }
+        return "Success";
+    }
 
 
 }
