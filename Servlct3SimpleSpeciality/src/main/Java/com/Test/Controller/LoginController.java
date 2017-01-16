@@ -45,7 +45,7 @@ public class LoginController {
 
       @RequestMapping("NotFound")
     public  String NotFoundException() throws com.Test.Exception.NotFoundException{
-        throw  new NotFoundException();
+        throw  new NotFoundException("没有这个页面");
     }
 
     @RequestMapping("Exception")

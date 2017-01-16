@@ -15,6 +15,20 @@
             -moz-background-size: cover;
             -o-background-size: cover;}
     </style>
+
+    <script
+            src="https://code.jquery.com/jquery-2.2.4.js"
+            integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+            crossorigin="anonymous"></script>
+
+    <script type="javascript" >
+        function Test() {
+//                alert($("#order-api_id").value
+            var a=document.getElementById("order-api_id").value;
+            alert(a);
+            console.log("ceshi");
+        }
+    </script>
 </head>
 <body>
 
@@ -31,9 +45,10 @@
         <div class="thumbnail">
             <img data-src=" " alt="..." />
             <div class="caption">
-                <h3>Function One</h3>
+                <h3>Function One/Order-api/id</h3>
                 <p>...</p>
-                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                <input  id="order-api_id" type="text"/>
+                <p><a  id="Testorder_id" href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
             </div>
         </div>
     </div>
@@ -44,7 +59,7 @@
             <div class="caption">
                 <h3>Function Two</h3>
                 <p>...</p>
-                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                <p><a href="#"  onclick="Test()" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
             </div>
         </div>
     </div>

@@ -1,0 +1,61 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<!--需要关闭Spring-security的CSRF功能-->
+<head>
+    <title>OrderPageTable</title>
+    <meta name="_csrf" content="${_csrf.token}"/>
+    <meta name="_csrf_header" content="X-CSRF-TOKEN"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+    </link>
+    <link rel="stylesheet" href="/resources/css/bootstrap-theme.min.css">
+    </link>
+    <link rel="stylesheet" href="/resources/css/bootstrap-table.min.css">
+    </link>
+
+</head>
+<body>
+ <h2>需要关闭Spring-security的CSRF防护</h2>
+<div class="wrapper wrapper-content">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="animated fadeInRightBig">
+                <!--添加内容区域-->
+                <div class="ibox-content">
+                    <h4 class="example-title">DEMO</h4>
+                    <div class="btn-group hidden-xs"  role="group" id="exampleToolbar">
+                        <button type="button" class="btn btn-outline btn-default">
+                            <i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <!--添加题目表-->
+                    <table  id="exampleTableToolbar3" class="table-bordered text-center" width="80%" data-toggle="table" >
+                        <thead>
+                        <tr>
+                            <!--data-field和你从数据库取出来的pojo类名相对应-->
+                            <th data-field="id" data-sortable="true">ID</th>
+                            <th data-field="countryname">CountyName</th>
+                            <th data-field="countrycode" data-sortable="true">countrycode</th>
+                            <!--<%&#45;&#45;这里是用来编辑的,可以添加编辑,删除等按钮&#45;&#45;%>-->
+                            <th data-field="action" data-formatter="actionFormatter" data-events="actionEvents">Action</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+                <!--添加题目表结束-->
+
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+<script src="/resources/js/jquery.min.js"></script>
+<script src="/resources/js/bootstrap.min.js"></script>
+<script src="/resources/js/bootstrap-table.min.js"></script>
+<script src="/resources/js/bootstrap-table-zh-CN.min.js"></script>
+<script src="/resources/js/TestOrderPageTable.js"></script>
+
+</body>
+</html>

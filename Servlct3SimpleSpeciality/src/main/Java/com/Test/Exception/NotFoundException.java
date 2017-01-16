@@ -8,5 +8,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  */
 @ResponseStatus(value = HttpStatus.NOT_FOUND,reason = "没有这个页面")
 public class NotFoundException extends Exception {
-
+    public NotFoundException(String message) {
+        super(message);
+    }
 }

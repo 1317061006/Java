@@ -1,31 +1,18 @@
 package com.Test.Controller;
 
 import com.Test.Dao.NOSQL.Redis.RedisRepository;
-import com.Test.Exception.OrderNotFoundException;
 import com.Test.entity.Order;
 import com.Test.entity.User;
 import com.Test.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Profile;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.validation.Valid;
-import java.net.URI;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by han on 2016/12/9.
@@ -116,4 +103,8 @@ public class CeshiContoller {
     }
 
 
+    @RequestMapping("OrderPageTable")
+    public String TestOrderPageTable(){
+        return "Test/OrderPageTable";
+    }
 }

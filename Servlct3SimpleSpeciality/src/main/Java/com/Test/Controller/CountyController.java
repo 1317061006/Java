@@ -2,14 +2,16 @@ package com.Test.Controller;
 
 import com.Test.Dao.mybatis.CountyMapper;
 import com.Test.entity.County;
-import com.Test.entity.Order;
+import com.Test.entity.PageUtil;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import tk.mybatis.mapper.entity.Example;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by han on 2016/12/27.
@@ -27,7 +29,7 @@ public class CountyController {
 //        County county = new County();  采用万能mapper
 //        county.setId(id);
 //        return countyMapper.selectOne(county);
-        return countyMapper.selectById(1);
+        return countyMapper.selectById(id);
     }
 
 
@@ -36,6 +38,18 @@ public class CountyController {
     public List<County> findAll(){
         return countyMapper.selectAll();
     }
+
+    @RequestMapping(value = "PagingFindAll")
+    public @ResponseBody  Map<String,Object>  PagingFindAll (@RequestBody PageUtil pageUtil){
+        Map<String,Object> maps = new HashMap<>();
+        PageHelper.startPage(pageUtil.getOffset() / pageUtil.getLimit() + 1, pageUtil.getLimit());
+        List<County> lists= countyMapper.selectAll();
+        PageInfo<County> info = new PageInfo<>(lists);
+        maps.put("total",info.getTotal());
+        maps.put("rows", lists);
+        return maps;
+    }
+
 
 
     @RequestMapping(value = "saveCounty")

@@ -71,15 +71,13 @@ public class OrderController {
 
 
 
-   @RequestMapping(value = "delete/{id}")
+    @RequestMapping(value = "delete/{id}")
     public  void order(@PathVariable String id) throws OrderNotFoundException {
         redis.remove(id);
         Order order = redis.find(id);
-        if(order ==null) 
+        if(order ==null)
             throw new OrderNotFoundException("已成功删除"+id+"  id");
-        
+
     }
-
-
 
 }

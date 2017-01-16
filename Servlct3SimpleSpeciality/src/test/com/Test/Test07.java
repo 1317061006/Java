@@ -2,6 +2,7 @@ package com.Test;
 
 import com.Test.JavaConfig.web.MybatisConfig;
 import com.Test.Dao.mybatis.CountyMapper;
+import com.Test.entity.County;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +27,10 @@ public class Test07 {
 
 
     @Test
-    public  void Test2(){
-        System.out.println(countyMapper.selectByPrimaryKey("ceshi"));
+    public  void Test2() {
+        County county = new County();
+        county.setId(2);
+        System.out.println(countyMapper.selectOne(county));
     }
 
 

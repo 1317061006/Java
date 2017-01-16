@@ -23,7 +23,7 @@ public class Test06 {
     public void Test01() {
         Order order = new Order();
         order.setId("1");
-        order.setCustomer("Test");
+        order.setCustomer("BaseTest");
         order.setType("ceshi");
         repository.save(order);
     }

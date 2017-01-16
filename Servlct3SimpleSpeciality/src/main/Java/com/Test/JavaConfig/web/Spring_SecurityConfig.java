@@ -74,12 +74,18 @@ public class Spring_SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers("/register").hasAuthority("ROLE_USER")
-                .antMatchers(HttpMethod.POST,"/register").hasAuthority("ROLE_ADMIN")
+                .antMatchers(HttpMethod.POST, "/register").hasAuthority("ROLE_ADMIN")
                 .antMatchers("/file").hasRole("USER")
+                .antMatchers("/order-api/**").hasRole("USER")
+                .antMatchers("/ceshi/**").hasRole("USER")
+                .antMatchers("County").permitAll()
+                .antMatchers("/resources").permitAll()
                 .anyRequest().permitAll()
                 .and()
                 .requiresChannel()
-                .antMatchers("/ceshi").requiresInsecure();//不需要https
+                .antMatchers("/ceshi").requiresInsecure();
+
+
 
 
     }
