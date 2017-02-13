@@ -27,7 +27,7 @@ import javax.sql.DataSource;
 public class JPADataConfig2 {
 
     @Autowired
-    Environment env;
+  private   Environment env;
 
 
     @Bean

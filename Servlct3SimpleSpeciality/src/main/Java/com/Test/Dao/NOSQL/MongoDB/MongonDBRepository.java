@@ -15,6 +15,6 @@ public interface MongonDBRepository extends MongoRepository<Order,String> ,Order
 
 
      @Query("{'customer':'testCustomer'},'type':?0")
-     List<Order>findtestCustomerOrders(String t);
+   public   List<Order>findtestCustomerOrders(String t);
 
 }

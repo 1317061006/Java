@@ -17,13 +17,13 @@ import java.util.Map;
  */
 public class RestTest {
 
-    public Profile fetchFacebookProfile(String id) {
+    private Profile fetchFacebookProfile(String id) {
         RestTemplate rest = new RestTemplate();
         return rest.getForObject("http://graph.facebook.com/{id}", Profile.class, id);
     }
 
 
-    public Profile fetchFacebookProfile2(String id) {
+    private Profile fetchFacebookProfile2(String id) {
         Map<String, String> urlVariables = new HashMap<String, String>();
         urlVariables.put("id", id);
         RestTemplate rest = new RestTemplate();
@@ -32,7 +32,7 @@ public class RestTest {
     }
 
 
-    public Order fetchOrder(String id) throws Exception {
+    private Order fetchOrder(String id) throws Exception {
         RestTemplate rest = new RestTemplate();
         ResponseEntity<Order> response = rest.getForEntity(
                 "http://localhost:8080/order-api/{id}", Order.class, id);
@@ -43,18 +43,18 @@ public class RestTest {
     }
 
 
-    public void updateOrder(Order order) {
+    private void updateOrder(Order order) {
         RestTemplate rest = new RestTemplate();
         String url = "http://localhost:8080/order-api/update" + order.getId();
         rest.put(URI.create(url), order);
     }
 
-    public void updateOrder2(Order order) {
+    private void updateOrder2(Order order) {
         RestTemplate rest = new RestTemplate();
         rest.put("http://localhost:8080/order-api/update/{id}", order, order.getId());
     }
 
-    public void updateOrder3(Order order) {
+    private void updateOrder3(Order order) {
         RestTemplate rest = new RestTemplate();
         Map<String, String> params = new HashMap<>();
         params.put("id", order.getId());
@@ -62,19 +62,19 @@ public class RestTest {
     }
 
 
-    public void delete(long id) {
+    private void delete(long id) {
         RestTemplate rest = new RestTemplate();
         rest.delete("http://localhost:8080/order-api/delete/{id}", id);
     }
 
 
-    public Order postOrderForObject(Order order) {
+    private Order postOrderForObject(Order order) {
         RestTemplate rest = new RestTemplate();
         return rest.postForObject("http://localhost:8080/order-api/saveorder", order, Order.class);
     }
 
 
-    public Order postOrderForEntity(Order order) {
+    private Order postOrderForEntity(Order order) {
         RestTemplate rest = new RestTemplate();
         ResponseEntity<Order> response = rest.postForEntity(
                 "http://localhost:8080/order-api/saveorder", order, Order.class);
@@ -84,12 +84,12 @@ public class RestTest {
         return order1;
     }
 
-    public String postOrder(Order order) {
+    private String postOrder(Order order) {
         RestTemplate rest = new RestTemplate();
         return rest.postForLocation("http://localhost:8080/order-api/saveorder", order).toString();
     }
 
-    public void exchange(Order order) {
+    private void exchange(Order order) {
         RestTemplate rest = new RestTemplate();
         ResponseEntity<Order> respons = rest.exchange("http://localhost:8080/order-api/{id}"
                 , HttpMethod.GET, null, Order.class, order.getId());
@@ -97,7 +97,7 @@ public class RestTest {
     }
 
 
-    public void exchange2(Order order) {
+    private void exchange2(Order order) {
         RestTemplate rest = new RestTemplate();
         MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
         headers.add("Accept", "application/json");
@@ -109,7 +109,7 @@ public class RestTest {
     }
 
 
-    public static void main(String[] args) throws Exception {
+    private static void main(String[] args) throws Exception {
         RestTest restTest = new RestTest();
         Order order = restTest.fetchOrder("username");
         System.out.println(order);

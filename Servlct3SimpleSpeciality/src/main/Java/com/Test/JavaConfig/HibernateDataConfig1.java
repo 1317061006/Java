@@ -28,7 +28,7 @@ import java.util.Properties;
 public class HibernateDataConfig1 {
 
     @Autowired
-    Environment env;
+ private    Environment env;
 
 
     @Bean

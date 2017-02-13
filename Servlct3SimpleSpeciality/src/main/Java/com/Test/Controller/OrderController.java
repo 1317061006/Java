@@ -25,7 +25,7 @@ import java.net.URI;
 public class OrderController {
 
     @Autowired
-    RedisRepository redis;
+   private RedisRepository redis;
 
     @RequestMapping(value = "preVersionOrder/{id}")
     public ResponseEntity<Order> countyResponse(@PathVariable String id) {

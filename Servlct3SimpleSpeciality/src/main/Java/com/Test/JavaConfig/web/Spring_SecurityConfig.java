@@ -1,7 +1,7 @@
 package com.Test.JavaConfig.web;
 
 import com.Test.Dao.NOSQL.Redis.RedisRepository;
-import com.Test.JavaConfig.Test.UserNoSqlServiceRepository;
+import com.Test.JavaConfig.ConfigAssert.UserNoSqlServiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;

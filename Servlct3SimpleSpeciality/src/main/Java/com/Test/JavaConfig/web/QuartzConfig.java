@@ -1,6 +1,6 @@
 package com.Test.JavaConfig.web;
 
-import com.Test.JavaConfig.Test.ATask;
+import com.Test.JavaConfig.ConfigAssert.ATask;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -21,6 +21,8 @@ public class QuartzConfig {
         return new ATask();
      }
 
+
+     //这里可以用通用方法接口加上泛型约束
     @Bean
     public MethodInvokingJobDetailFactoryBean jobDetail(ATask job) {
         MethodInvokingJobDetailFactoryBean m = new MethodInvokingJobDetailFactoryBean();

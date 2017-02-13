@@ -28,7 +28,7 @@ import javax.sql.DataSource;
 public class Spring_data_jpaConfig {
 
     @Autowired
-    Environment env;
+   private Environment env;
 
     @Bean
     public BasicDataSource dataSource() {

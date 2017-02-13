@@ -1,7 +1,7 @@
 package com.Test;
 
-import com.Test.JavaConfig.AsyncConfig;
-import com.Test.JavaConfig.Test.Async.Task;
+import com.Test.AsyncTest.AsyncConfig;
+import com.Test.AsyncTest.Task;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -9,5 +9,5 @@ import java.util.List;
  */
 public interface CountySweeper {
 
-    List<County> selectAll();
+   public List<County> selectAll();
 }

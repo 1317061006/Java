@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-/**
+/**Demo其实开始本身就是测试一下Servlet3 Servlet3的通过注解注册Servlet方式
  * Created by han on 2016/9/21.
  */
 

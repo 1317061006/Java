@@ -19,7 +19,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 public class Spring_data_RedisConfig {
 
     @Autowired
-    JedisConnectionFactory redisCF;
+  private   JedisConnectionFactory redisCF;
 
 //    @Bean //由于在上面的RedisCacheConfig有JedisConnectionFactory 不能重复配置
 //    public RedisConnectionFactory redisCF() {

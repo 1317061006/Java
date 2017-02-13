@@ -3,7 +3,7 @@ package com.Test.Web;
 
 import javax.servlet.*;
 
-/**
+/** WebApplicationInitializer 配置原生web.xml对应的java方式
  * Created by han on 2016/11/19.
  */
 public class WebAppInitializer2 /* implements WebApplicationInitializer*/{

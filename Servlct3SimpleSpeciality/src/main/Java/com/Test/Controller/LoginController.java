@@ -23,7 +23,7 @@ import java.util.List;
 public class LoginController {
 
 
-    ImageUtil imageUtil = new ImageUtil();
+ private   ImageUtil imageUtil =   ImageUtil.getInstance();
 
 
     @RequestMapping("test")

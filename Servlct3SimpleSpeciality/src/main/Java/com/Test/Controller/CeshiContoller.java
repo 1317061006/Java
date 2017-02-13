@@ -11,7 +11,13 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 /**
@@ -22,10 +28,10 @@ import java.util.List;
 public class CeshiContoller {
 
     @Autowired
-    RedisRepository redis;
+  private   RedisRepository redis;
 
     @Autowired
-    UserService userService;
+  private   UserService userService;
 
 
     @RequestMapping(method = RequestMethod.GET)
@@ -107,4 +113,70 @@ public class CeshiContoller {
     public String TestOrderPageTable(){
         return "Test/OrderPageTable";
     }
+
+
+    @RequestMapping("TestCookie")
+    public String TestCookie(){
+        return "Test/TestCookie";
+    }
+
+    @RequestMapping("CookieTest")
+    public void CookieTest(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        response.setContentType("text/html;charset=utf-8");
+        String username = request.getParameter("username");
+        PrintWriter out = response.getWriter();
+        out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">");
+        out.println("<HTML>");
+        out.println("  <HEAD><TITLE>CookieTest</TITLE></HEAD>");
+        out.println("  <BODY>");
+        if (username != null && username != "") {
+            Cookie cName = new Cookie("username", username);
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+            Cookie cDate = new Cookie("lastVisited", format.format(new java.util.Date()));
+            response.addCookie(cName);
+            response.addCookie(cDate);
+            out.println("Cookie保存成功");
+            out.println("<br /><br />");
+            out.println("<a href='/ceshi/getCookie'>读取Cookie内容</a>");
+        }
+        out.println("</body>");
+        out.println("</html>");
+        out.flush();
+        out.close();
+    }
+
+
+    @RequestMapping("getCookie")
+    public void getCookie(HttpServletRequest request,HttpServletResponse response) throws IOException {
+        response.setContentType("text/html;charset=utf-8");
+        PrintWriter out = response.getWriter();
+        out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">");
+        out.println("<HTML>");
+        out.println("  <HEAD><TITLE>A Servlet</TITLE></HEAD>");
+        out.println("  <BODY>");
+        Cookie[] cookies = request.getCookies();
+        Cookie c = null;
+        if (cookies!=null){
+            for (int i=0;i<cookies.length;i++) {
+                c = cookies[i];
+                if (c.getName().equals("username")) {
+                    out.println("用户名:" + c.getValue());
+                    out.println("<br />");
+                }
+                if (c.getName().equals("lastVisited")) {
+                    out.println("最后登录时间:" + c.getValue());
+                    out.println("<br />");
+                }
+            }
+
+            }else {
+            out.println("No cookie Existing");
+        }
+        out.println("</body>");
+        out.println("</html>");
+        out.flush();
+        out.close();
+    }
+
+
 }

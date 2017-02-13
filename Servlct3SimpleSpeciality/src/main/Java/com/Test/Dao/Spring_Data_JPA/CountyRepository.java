@@ -13,9 +13,9 @@ import java.util.List;
 public interface CountyRepository  extends JpaRepository<County,Integer> ,CountySweeper {
 
 
-    List<County> findBycountryname(String countryname);
+   public List<County> findBycountryname(String countryname);
 
     @Query("   from County  c  where c.id = :id")
-    List<County> ceshi(@Param("id") int id);
+    public List<County> ceshi(@Param("id") int id);
 
 }

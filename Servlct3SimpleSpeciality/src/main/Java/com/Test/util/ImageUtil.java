@@ -11,7 +11,15 @@ import java.io.IOException;
  */
 public class ImageUtil {
 
+    private static ImageUtil imageUtil = new ImageUtil();
 
+    private ImageUtil (){
+
+    }
+
+    public static  ImageUtil getInstance() {
+        return imageUtil;
+    }
 
     public  void saveImage(String filename,MultipartFile image){
 

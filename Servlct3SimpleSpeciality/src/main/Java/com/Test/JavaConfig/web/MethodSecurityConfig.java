@@ -1,11 +1,10 @@
 package com.Test.JavaConfig.web;
 
-import com.Test.JavaConfig.Test.UserPermissionEvaluator;
+import com.Test.JavaConfig.ConfigAssert.UserPermissionEvaluator;
 import com.Test.service.UserService;
 import com.Test.service.UserServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor;
 import org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler;
 import org.springframework.security.access.expression.method.MethodSecurityExpressionHandler;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;

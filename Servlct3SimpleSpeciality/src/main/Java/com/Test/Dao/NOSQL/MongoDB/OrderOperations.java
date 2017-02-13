@@ -9,6 +9,6 @@ import java.util.List;
  */
 public interface OrderOperations {
 
- List<Order> findOrderByType(String t);
+ public List<Order> findOrderByType(String t);
 
 }

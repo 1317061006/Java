@@ -13,7 +13,7 @@ public class MongoTemplateRepository {
 
 
     @Autowired
-    MongoOperations mongo;
+     private   MongoOperations mongo;
 
 
     public void save(Order order) {

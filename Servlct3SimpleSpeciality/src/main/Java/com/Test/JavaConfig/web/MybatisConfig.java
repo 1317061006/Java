@@ -22,7 +22,7 @@ import java.io.IOException;
 public class MybatisConfig {
 
     @Autowired
-    Environment env;
+  private   Environment env;
 
 
     @Bean

@@ -21,7 +21,7 @@ import java.util.Map;
 public class CountyController {
 
       @Autowired
-     CountyMapper countyMapper;
+    private CountyMapper countyMapper;
 
     @RequestMapping(value = "/findById")
     @ResponseBody

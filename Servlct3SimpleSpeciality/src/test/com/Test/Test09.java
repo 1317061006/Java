@@ -1,6 +1,6 @@
 package com.Test;
 
-import com.Test.JavaConfig.TestConfig;
+import com.Test.otherTest.TestConfig;
 import com.Test.entity.Item;
 import org.junit.Test;
 import org.junit.runner.RunWith;
