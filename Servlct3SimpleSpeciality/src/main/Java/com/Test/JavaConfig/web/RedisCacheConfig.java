@@ -1,6 +1,6 @@
 package com.Test.JavaConfig.web;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.ehcache.EhCacheCacheManager;
@@ -29,7 +29,6 @@ public class RedisCacheConfig {
     public CacheManager cacheManager(RedisTemplate redisTemplate) {
         return new RedisCacheManager(redisTemplate);
     }
-
 
 
     @Bean

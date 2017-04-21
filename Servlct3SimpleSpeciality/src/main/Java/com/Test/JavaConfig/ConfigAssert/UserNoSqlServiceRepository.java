@@ -33,7 +33,7 @@ public class UserNoSqlServiceRepository implements UserDetailsService {
             authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
             authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
             return new org.springframework.security.core.userdetails.User(
-                    order.getId(),
+                    order.getId(),/*getId作为用户名 getCustomer作为密码*/
                     order.getCustomer(),authorities
             );
         }

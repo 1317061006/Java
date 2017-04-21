@@ -46,7 +46,7 @@ public class OrderController {
 
 
     @RequestMapping(value = "/saveorder",method = RequestMethod.POST ,consumes = "application/json")
-    public ResponseEntity<Order> saveOrder( @Valid Order o,Errors errors,UriComponentsBuilder
+    public ResponseEntity<Order> saveOrder( @Valid @RequestBody Order o,Errors errors,UriComponentsBuilder
             ucb) {
         if(errors.hasErrors()) {
             HttpHeaders headers = new HttpHeaders();

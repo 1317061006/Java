@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.Test.Dao.mybatis.UsersMapper">
+
+    <resultMap id="resultListUserInfo" type="UserInfo">
+    </resultMap>
+
+    <select id="getUserInfo" parameterType="string" resultMap="resultListUserInfo">
+       SELECT u.username name, u.password pass, a.authority role FROM
+       users u INNER JOIN authorities a on u.username=a.username WHERE
+       u.enabled =1  and u.username = #{username}
+    </select>
+
+
+
+
+</mapper>

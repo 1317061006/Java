@@ -29,7 +29,7 @@ import java.io.IOException;
 @Configuration
 @EnableWebMvc
 @ComponentScan("com.Test.Controller")
-public class WebConfig  extends WebMvcConfigurerAdapter {
+    public class WebConfig  extends WebMvcConfigurerAdapter {
 
 
     @Bean

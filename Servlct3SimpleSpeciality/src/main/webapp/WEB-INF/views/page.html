@@ -1,12 +1,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
       
   <body>
   
     <div th:fragment="header">
       <a th:href="@{/}">
         <img th:src="@{/resources/images/spitter_logo_50.png}" border="0" /></a>
-      <a th:href="@{/logout}">Logout</a>
+      <form class="form-horizonta" th:action="@{/logout}" method="post" role="form">
+       <button class="btn btn-default" th:type="submit" role="button">退出登录</button>
+      </form>
     </div>
 
     <div>Content goes here</div>

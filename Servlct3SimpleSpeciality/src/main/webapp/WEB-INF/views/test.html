@@ -1,17 +1,61 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>test</title>
+    <title>test</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
     </link>
     <link rel="stylesheet" href="/resources/css/bootstrap-theme.min.css">
     </link>
+    <script src="/resources/js/jquery-3.1.1.js"/>
     <script src="/resources/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#ajaxButton").click(function () {
+                $.ajax({
+                            url: "County/findById",
+                            data: "id=1",
+                            dataType:"json",
+                            contentType:"application/json;charset=UTF-8",
+                            success:function(   data,  textStatus,   jqXHR ){
+                                //使用data数据只能进行访问子属性的访问   只能使用JqXHR下的responseText进行渲染
+                                $("#ajaxTest").text(jqXHR.responseText);
+                            },
+                            error:function(error){
+                                console.log("传递失败"+error)
+                            },
+                        }
+                );
+            });
+            $("#ajaxButton2").click(function(){
+                var name=encodeURI($("#name").val());
+                var user={name:name};
+                //JSON.stringify() 方法可以将任意的 JavaScript 值序列化成 JSON 字符串
+                var aMenu = encodeURI(JSON.stringify(user));
+                $.ajax({
+                    url:"/ajaxTest",
+                    data:"orderJson="+aMenu,
+                    success:function(data){
+                        console.log(data+"true 已经成功传递");
+                    },
+                    error:function(error){alert("传递失败"+error)}
+                });
+            });
+        });
+    </script>
 </head>
 <body>
-
 <h1 align="center" class="text-capitalize"> test</h1>
+<br/>
+
+<h2 id="ajaxTest">尚未进行测试</h2>
+<button id="ajaxButton" type="button" class="btn btn-default btn-sm">传输数据</button>
+<br/>
+
+name：<input id="name" type="text"/>
+<button id="ajaxButton2" type="button" class="btn btn-default btn-sm">前端解析json字符串</button>
+
 </body>
 </html>

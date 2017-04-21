@@ -4,6 +4,7 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.util.Random;
 import java.util.concurrent.Future;
 
@@ -44,6 +45,11 @@ public class Task {
         long end = System.currentTimeMillis();
         System.out.println("完成任务三，耗时：" + (end - start) + "毫秒");
         return new AsyncResult<>("任务三完成");
+    }
+
+    @PostConstruct
+    public void init() {
+        System.out.println("init 初始化完毕");
     }
 
 }

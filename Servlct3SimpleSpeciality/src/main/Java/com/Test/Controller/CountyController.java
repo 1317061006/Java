@@ -3,6 +3,7 @@ package com.Test.Controller;
 import com.Test.Dao.mybatis.CountyMapper;
 import com.Test.entity.County;
 import com.Test.entity.PageUtil;
+import com.Test.service.CountyService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,10 @@ import java.util.Map;
 @RequestMapping("/County")
 public class CountyController {
 
-      @Autowired
+    @Autowired
+    private CountyService countyService;
+
+    @Autowired
     private CountyMapper countyMapper;
 
     @RequestMapping(value = "/findById")
@@ -29,7 +33,8 @@ public class CountyController {
 //        County county = new County();  采用万能mapper
 //        county.setId(id);
 //        return countyMapper.selectOne(county);
-        return countyMapper.selectById(id);
+        System.out.println(countyService.selectById(id));
+        return countyService.selectById(id);
     }
 
 

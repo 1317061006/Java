@@ -26,11 +26,6 @@ public class MethodSecurityConfig extends GlobalMethodSecurityConfiguration {
     }
 
 
-    @Bean
-    public UserService userService() {
-        return new UserServiceImpl();
-    }
-
 
 
     @Override

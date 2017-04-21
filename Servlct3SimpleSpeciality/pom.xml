@@ -14,7 +14,7 @@
     <!--log-->
     <slf4j.version>1.7.7</slf4j.version>
     <log4j.version>1.2.17</log4j.version>
-    <org.springframework.security.version>3.2.5.RELEASE</org.springframework.security.version>
+    <org.springframework.security.version>3.2.3.RELEASE</org.springframework.security.version>
     <org.hibernate>4.1.1.Final</org.hibernate>
   </properties>
 
@@ -395,6 +395,7 @@
       <artifactId>javax.el-api</artifactId>
       <version>2.2.4</version>
     </dependency>
+
     <dependency>
       <groupId>org.glassfish.web</groupId>
       <artifactId>javax.el</artifactId>
@@ -424,7 +425,7 @@
       <artifactId>mapper</artifactId>
       <version>3.3.9</version>
     </dependency>
-
+ <!--Mybatis Spring支持-->
     <dependency>
       <groupId>org.mybatis</groupId>
       <artifactId>mybatis-spring</artifactId>
@@ -443,8 +444,26 @@
       <version>1.0.1</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.apache.activemq</groupId>
+      <artifactId>activemq-all</artifactId>
+      <version>5.7.0</version>
+    </dependency>
+
+
+
   </dependencies>
   <build>
     <finalName>Test</finalName>
+      <plugins>
+          <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-compiler-plugin</artifactId>
+              <configuration>
+                  <source>1.8</source>
+                  <target>1.8</target>
+              </configuration>
+          </plugin>
+      </plugins>
   </build>
 </project>

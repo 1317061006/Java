@@ -38,16 +38,12 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
 
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
-
         FilterRegistration.Dynamic filter=servletContext.addFilter("CharacterEncodingFilter",org.springframework.web.filter.CharacterEncodingFilter.class);
         filter.setInitParameter("encoding","UTF-8");
         filter.addMappingForUrlPatterns(null,false,"/*");
-
+        servletContext.addListener(org.springframework.security.web.session.HttpSessionEventPublisher.class);
         super.onStartup(servletContext);
     }
-
-
-
 
 
 }

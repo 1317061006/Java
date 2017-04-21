@@ -6,7 +6,6 @@
 
 <configuration>
 
-
     <settings>
         <setting name="logImpl" value="LOG4J"/>
         <setting name="cacheEnabled" value="true" /><!-- 全局映射器启用缓存 -->
@@ -16,6 +15,8 @@
 
     <typeAliases>
         <typeAlias alias="County" type="com.Test.entity.County"/>
+        <typeAlias alias="users" type="com.Test.entity.Users" />
+        <typeAlias alias="UserInfo" type="com.Test.entity.UserInfo"/>
     </typeAliases>
 
 

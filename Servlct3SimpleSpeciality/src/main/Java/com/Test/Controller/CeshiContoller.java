@@ -42,7 +42,7 @@ public class CeshiContoller {
         if(errors.hasErrors()){
             return "error";
         }
-        User.setName("luanqibaz");
+        User.setName("测试字符串");
         model.addAttribute("ce", "ce");
         model.addAttribute("username", User.getName());
         model.addAttribute("redis", redis.find("username").getCustomer());
@@ -119,6 +119,7 @@ public class CeshiContoller {
     public String TestCookie(){
         return "Test/TestCookie";
     }
+
 
     @RequestMapping("CookieTest")
     public void CookieTest(HttpServletRequest request, HttpServletResponse response) throws IOException {
